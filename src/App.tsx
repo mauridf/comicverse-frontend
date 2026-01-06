@@ -7,6 +7,9 @@ import Registrar from './pages/auth/Registrar';
 import Dashboard from './pages/dashboard/Dashboard';
 import Navbar from './components/layout/Navbar';
 import Header from './components/layout/Header';
+import EditorasLista from './pages/editoras';
+import EditarEditora from './pages/editoras/Editar';
+import VisualizarEditora from './pages/editoras/Visualizar';
 
 // Componente para rotas privadas
 const PrivateRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -81,7 +84,29 @@ function AppRoutes() {
           </PrivateRoute>
         } 
       />
-      
+      <Route path="/editoras" element={
+          <PrivateRoute>
+            <MainLayout>
+              <EditorasLista />
+            </MainLayout>
+          </PrivateRoute>
+        } />
+
+      <Route path="/editoras/editar/:id" element={
+          <PrivateRoute>
+            <MainLayout>
+              <EditarEditora />
+            </MainLayout>
+          </PrivateRoute>
+        } />
+
+      <Route path="/editoras/visualizar/:id" element={
+          <PrivateRoute>
+            <MainLayout>
+              <VisualizarEditora />
+            </MainLayout>
+          </PrivateRoute>
+        } />
       {/* Rota padrão */}
       <Route path="/" element={<Navigate to="/dashboard" />} />
     </Routes>
