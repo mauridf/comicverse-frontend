@@ -10,6 +10,12 @@ import Header from './components/layout/Header';
 import EditorasLista from './pages/editoras';
 import EditarEditora from './pages/editoras/Editar';
 import VisualizarEditora from './pages/editoras/Visualizar';
+import PersonagensLista from './pages/personagens';
+import EditarPersonagem from './pages/personagens/Editar';
+import VisualizarPersonagem from './pages/personagens/Visualizar';
+import EquipesLista from './pages/equipes';
+import EditarEquipe from './pages/equipes/Editar';
+import VisualizarEquipe from './pages/equipes/Visualizar';
 
 // Componente para rotas privadas
 const PrivateRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -104,6 +110,54 @@ function AppRoutes() {
           <PrivateRoute>
             <MainLayout>
               <VisualizarEditora />
+            </MainLayout>
+          </PrivateRoute>
+        } />
+
+      <Route path="/personagens" element={
+          <PrivateRoute>
+            <MainLayout>
+              <PersonagensLista />
+            </MainLayout>
+          </PrivateRoute>
+        } />
+
+      <Route path="/personagens/editar/:id" element={
+          <PrivateRoute>
+            <MainLayout>
+              <EditarPersonagem />
+            </MainLayout>
+          </PrivateRoute>
+        } />
+
+      <Route path="/personagens/visualizar/:id" element={
+          <PrivateRoute>
+            <MainLayout>
+              <VisualizarPersonagem />
+            </MainLayout>
+          </PrivateRoute>
+        } />
+      
+      <Route path="/equipes" element={
+          <PrivateRoute>
+            <MainLayout>
+              <EquipesLista />
+            </MainLayout>
+          </PrivateRoute>
+        } />
+
+      <Route path="/equipes/editar/:id" element={
+          <PrivateRoute>
+            <MainLayout>
+              <EditarEquipe />
+            </MainLayout>
+          </PrivateRoute>
+        } />
+
+      <Route path="/equipes/visualizar/:id" element={
+          <PrivateRoute>
+            <MainLayout>
+              <VisualizarEquipe />
             </MainLayout>
           </PrivateRoute>
         } />
