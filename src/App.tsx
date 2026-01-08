@@ -16,6 +16,9 @@ import VisualizarPersonagem from './pages/personagens/Visualizar';
 import EquipesLista from './pages/equipes';
 import EditarEquipe from './pages/equipes/Editar';
 import VisualizarEquipe from './pages/equipes/Visualizar';
+import HQsLista from './pages/hqs';
+import EditarHQ from './pages/hqs/Editar';
+import VisualizarHQ from './pages/hqs/Visualizar';
 
 // Componente para rotas privadas
 const PrivateRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -158,6 +161,29 @@ function AppRoutes() {
           <PrivateRoute>
             <MainLayout>
               <VisualizarEquipe />
+            </MainLayout>
+          </PrivateRoute>
+        } />
+      <Route path="/hqs" element={
+          <PrivateRoute>
+            <MainLayout>
+              <HQsLista />
+            </MainLayout>
+          </PrivateRoute>
+        } />
+
+      <Route path="/hqs/editar/:id" element={
+          <PrivateRoute>
+            <MainLayout>
+              <EditarHQ />
+            </MainLayout>
+          </PrivateRoute>
+        } />
+
+      <Route path="/hqs/visualizar/:id" element={
+          <PrivateRoute>
+            <MainLayout>
+              <VisualizarHQ />
             </MainLayout>
           </PrivateRoute>
         } />
